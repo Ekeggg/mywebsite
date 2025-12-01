@@ -1,0 +1,26 @@
+{% extends "helpdesk/base.html" %}
+{% block title %}New help request{% endblock %}
+{% block content %}
+
+<h2>Create a New Help Request</h2>
+<form method="POST">
+  {% csrf_token %}
+  <label class="form-label">Title</label>
+  <input type="text" name="title" class="form-control mb-3" required>
+  <label class="form-label">Subject</label>
+  <select name="subject" class="form-select mb-3" required>
+    <option value="" disabled selected>Select a subject</option>
+    <option value="Math">Math</option>
+    <option value="Physics">Physics</option>
+    <option value= "Chemistry">Chemistry</option>
+    <option value="Biology">Biology</option>
+    <option value="Computer Science">Computer Science</option>
+    <option value = "History">History</option>
+    <option value="English">English</option>
+    <option value="Other">Other</option>
+  </select>
+  <label class="form-label">Description</label>
+  <textarea name="description" class="form-control mb-3" rows="5" required></textarea>
+  <button class="btn btn-success">Submit</button>
+</form>
+{% endblock %}

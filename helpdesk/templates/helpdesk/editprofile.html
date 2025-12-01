@@ -1,0 +1,16 @@
+{% extends "helpdesk/base.html" %}
+{% block content %}
+<h2>Select subjects you can help with</h2>
+<form method="POST">
+    {% csrf_token %}
+    {% for skill in skills %}
+        <label>
+            <input type="checkbox" name="skills" value="{{ skill }}"{% if skill in selected %}checked{% endif %}>
+            {{ skill }}
+        </label>
+        <br>
+    {% endfor %}
+    <button type="submit">Save</button>
+</form>
+{% endblock %}
+
